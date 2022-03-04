@@ -1,23 +1,26 @@
-<div class="ui small inverted menu">
+<div class="ui huge blue menu">
   <div class="ui container">
-    <a class="active item">
-        Chatroom
-    </a>
+    <%= link_to("Chatroom", root_path ,class: "active item") %>
     <a class="item">
-        Account
+        Messages
     </a>
     <div class="right menu">
       <div class="ui dropdown item">
-        Language <i class="dropdown icon"></i>
+        Account <i class="dropdown icon"></i>
         <div class="menu">
-        <a class="item">English</a>
-        <a class="item">Russian</a>
-        <a class="item">Spanish</a>
+        <% if logged_in? %>
+          <%= link_to "Logout", logout_path, method: :delete, class:"item" %>
+        <% else %>
+          <%= link_to "Login", login_path, class:"item" %>
+          <%= link_to "Sign Up", root_path ,class:"item"%>
+        <% end %>
         </div>
       </div>
-      <div class="item">
-        <div class="ui primary button">Sign Up</div>
-      </div>
+      <% unless logged_in? %>
+        <div class="item">
+          <%= link_to "Sign Up", root_path, class:"ui primary button"%>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

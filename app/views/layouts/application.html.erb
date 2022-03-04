@@ -11,9 +11,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body backgroundcolor= "#FBFCFC">
     <%= render 'layouts/menu' %>
     <div class="ui container">
+      <%= render 'layouts/flash'  %>
       <%= yield %>
     </div>
   </body>
